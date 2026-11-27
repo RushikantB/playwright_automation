@@ -3,14 +3,6 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/USERNAME/Playwright-Automation.git'
-            }
-        }
-
         stage('Setup Python Environment') {
             steps {
                 sh '''
