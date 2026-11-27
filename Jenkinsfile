@@ -28,10 +28,7 @@ pipeline {
                 sh '''
                     . venv/bin/activate
                     mkdir -p reports
-                    pytest -v \
-                    --html=reports/report.html \
-                    --self-contained-html \
-                    --junitxml=reports/junit.xml
+                    pytest --custom-browser=chromium -v --html=reports/report.html --self-contained-html --junitxml=reports/junit.xml
                 '''
             }
         }

@@ -16,7 +16,7 @@ def playwright():
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--browser",
+        "--custom-browser",
         action="store",
         default="chromium",
         help="Browser: chromium, webkit"
@@ -25,7 +25,7 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session")
 def browser_type(playwright, request):
-    browser_name = request.config.getoption("--browser").lower()
+    browser_name = request.config.getoption("--custom-browser").lower()
 
     if browser_name == "chromium":
         return playwright.chromium
@@ -39,7 +39,7 @@ def browser_type(playwright, request):
 
 @pytest.fixture(scope="session")
 def browser(browser_type):
-    browser = browser_type.launch(headless=False)
+    browser = browser_type.launch(headless=True)
     yield browser
     browser.close()
 
