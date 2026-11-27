@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual Environment
+venv/
+.venv/
+
+# Playwright
+test-results/
+playwright-report/
+
+# Reports
+reports/
+allure-results/
+allure-report/
+
+# IDE
+.idea/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
